@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Afrin ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:radial-gradient(circle at top,#1b1b4d,#09091f,#000);
+color:white;
+text-align:center;
+}
+
+.container{
+position:relative;
+z-index:10;
+}
+
+.moon{
+width:170px;
+height:170px;
+border-radius:50%;
+background:radial-gradient(circle,#fff,#ddd,#bbb);
+box-shadow:0 0 80px white;
+margin:auto;
+cursor:pointer;
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-20px);
+}
+}
+
+h1{
+margin-top:20px;
+font-size:42px;
+text-shadow:0 0 20px cyan;
+}
+
+p{
+margin-top:10px;
+font-size:20px;
+color:#ddd;
+}
+
+.hidden{
+display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="moon" onclick="openGift()"></div>
+
+<h1>Touch The Moon 🌙</h1>
+
+<p>A magical surprise is waiting...</p>
+
+<div id="birthday" class="hidden">
+<h1>🎉 Happy Birthday 🎉</h1>
+
+<h1>Afrin ❤️</h1>
+
+<div id="typing"></div>
+
+<div class="cake">🎂</div>
+
+<button id="nextBtn" onclick="showLetter()">
+💌 Open My Letter
+</button>
+
+<div id="letter" class="hidden">
+
+<h2>❤️ My Dear Afrin ❤️</h2>
+
+<p id="loveText">
+You are the most beautiful part of my life.<br><br>
+
+Every smile of yours makes my day brighter.<br><br>
+
+No matter how far we are,<br>
+my heart always stays with you. ❤️<br><br>
+
+I wish your every dream comes true.<br><br>
+
+Happy Birthday My Princess 👑🎂❤️<br><br>
+
+I Love You Forever 💖
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const text=`Happy Birthday My Love ❤️
+
+Today is the most beautiful day because you were born.
+
+I wish Allah always keeps you happy.
+
+May every smile stay forever on your face.
+
+You are my happiness.
+
+You are my peace.
+
+You are my everything.
+
+Happy Birthday Afrin ❤️🎂`;
+
+let i=0;
+
+function typing(){
+
+let box=document.getElementById("typing");
+
+let timer=setInterval(()=>{
+
+box.innerHTML+=text.charAt(i);
+
+i++;
+
+if(i>=text.length){
+
+clearInterval(timer);
+
+}
+
+},40);
+
+}
+
+function openGift(){
+
+document.querySelector(".moon").style.display="none";
+
+document.querySelector("h1").style.display="none";
+
+document.querySelector("p").style.display="none";
+
+document.getElementById("birthday").classList.remove("hidden");
+
+typing();
+
+setInterval(createBalloon,700);
+
+setInterval(createConfetti,180);
+
+}
+
+function showLetter(){
+
+document.getElementById("letter").classList.remove("hidden");
+
+}
+
+function createBalloon(){
+
+let b=document.createElement("div");
+
+b.className="balloon";
+
+b.innerHTML=["🎈","💖","🌹","✨"][Math.floor(Math.random()*4)];
+
+b.style.position="fixed";
+
+b.style.left=Math.random()*100+"vw";
+
+b.style.bottom="-40px";
+
+b.style.fontSize="35px";
+
+b.style.pointerEvents="none";
+
+b.style.animation="heartFly 7s linear forwards";
+
+document.body.appendChild(b);
+
+setTimeout(()=>b.remove(),7000);
+
+}
+
+function createConfetti(){
+
+let c=document.createElement("div");
+
+c.className="confetti";
+
+c.innerHTML=["🎊","✨","❤️","💖","🌸"][Math.floor(Math.random()*5)];
+
+c.style.position="fixed";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.top="-30px";
+
+c.style.fontSize="28px";
+
+c.style.pointerEvents="none";
+
+c.style.animation="roseFall 6s linear forwards";
+
+document.body.appendChild(c);
+
+setTimeout(()=>c.remove(),6000);
+
+}
+
+<style>
+
+.balloon{
+position:fixed;
+bottom:-50px;
+font-size:35px;
+animation:floatUp 8s linear forwards;
+}
+
+.confetti{
+position:fixed;
+top:-30px;
+font-size:25px;
+animation:fallDown 6s linear forwards;
+}
+
+.cake{
+font-size:100px;
+margin-top:20px;
+animation:cakePop 2s infinite;
+}
+
+#nextBtn{
+margin-top:20px;
+padding:15px 30px;
+font-size:20px;
+border:none;
+border-radius:40px;
+background:#ff4081;
+color:white;
+cursor:pointer;
+box-shadow:0 0 20px #ff4081;
+}
+
+#letter{
+margin-top:25px;
+padding:20px;
+background:rgba(255,255,255,.12);
+border-radius:20px;
+backdrop-filter:blur(10px);
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0);}
+100%{transform:translateY(-120vh);}
+}
+
+@keyframes fallDown{
+0%{transform:translateY(-20px);}
+100%{transform:translateY(120vh);}
+}
+
+@keyframes cakePop{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.1);}
+}
+
+</style>
+
+</script>
+
+</body>
+</html>
+
+
